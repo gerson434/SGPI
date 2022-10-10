@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SGPI.Models;
+using System.Linq;
 
 namespace SGPI.Controllers
 {
     public class AdministradorController : Controller
     {
+        SGPIDBContext context = new SGPIDBContext();
         public IActionResult Login()
         {
+
             return View();
         }
         public IActionResult OlvidarContrasena()

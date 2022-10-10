@@ -1,0 +1,21 @@
+﻿
+            /* CREATE
+             */  Genero genero = new Genero();
+            genero.Genero1 = "masculino";
+
+            
+            context.Add(genero);
+            context.SaveChanges();
+
+           /* SELECT*/
+             var gen = (from s in context.Generos 
+                       where s.IdGenero == 1
+                       select s);
+           Genero nuevoGen=gen.SingleOrDefault();
+            nuevoGen.Genero1 = "Binario";
+            
+            context.Update(nuevoGen);
+            context.SaveChanges();
+
+            context.Remove(nuevoGen);
+            context.SaveChanges();
