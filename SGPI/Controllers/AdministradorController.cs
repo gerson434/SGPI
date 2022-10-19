@@ -9,6 +9,7 @@ namespace SGPI.Controllers
         SGPIDBContext context = new SGPIDBContext();
         public IActionResult Login()
         {
+;
 
             return View();
         }
