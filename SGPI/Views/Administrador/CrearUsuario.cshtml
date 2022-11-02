@@ -1,4 +1,4 @@
-﻿
+﻿@model Usuario
 @{
     ViewData["Title"] = "CrearUsuario";
     Layout = "_LayoutMP";
@@ -23,66 +23,63 @@
 
 <div class="container1" id="container">
     <div class="form-container sign-in-container">
-        <form class="row g-3">
+        <form method="post" class="row g-3">
 
             <div class="row">
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Tipo de Documento</label>
-                <select id="inputState" class="form-select" style="position:relative; margin-top:0.5rem;">
-                    <option selected>Cedula de Ciudadania</option>
-                    <option>Tarjeta de Identidad</option>
-                </select>
+                 @Html.DropDownList("IdDoc", new SelectList(ViewBag.documento, "IdDoc", "TipoDocumento"), new {@class="form-control dropdown"})
             
             </div>
              <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Numero de documento</label>
-                <input type="text" class="input1"  id="inputtext">
+                    <input asp-for="NumeroDocumento" type="text" class="input1" id="inputtext">
             </div>
             </div>
 
              <div class="row">
            
            
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Nombre</label>
-                    <input type="text" class="input1" id="inputtext">
+            <div class="col-md-3">
+                <label for="inputPassword4" class="form-label"> 
+                    Primer Nombre</label>
+                    <input asp-for="PrimerNombre" type="text" class="input1" id="inputtext">
             </div>
-                <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Apellidos</label>
-                    <input type="text" class="input1" id="inputtext">
+            <div class="col-md-3">
+                <label for="inputPassword4" class="form-label">Segundo Nombre</label>
+                    <input asp-for ="SegundoNombre" type="text" class="input1" id="inputtext">
+            </div>
+                <div class="col-md-3">
+                    <label for="inputAddress" class="form-label">Primer Apellidos</label>
+                    <input asp-for="PrimerApellido" type="text" class="input1" id="inputtext">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputAddress" class="form-label">Segundo Apellidos</label>
+                    <input asp-for="SegundoApellido"  type="text" class="input1" id="inputtext">
                 </div>
                 <div class="col-md-6">
-                <label for="inputAddress2" class="form-label">Usuario</label>
-                    <input type="email" class="input1" id="inputtext">
+                <label for="inputAddress2" class="form-label">Correo</label>
+                    <input asp-for="Email" type="email" class="input1" id="inputtext">
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">Contraseña</label>
-                    <input type="password" class="input1" id="inputCity">
+                    <input asp-for="Password" type="password" class="input1" id="inputCity">
             </div>
 
                 <div class="col-md-3">
                     <label for="inputState" class="form-label">Genero</label>
-                    <select id="inputState" class="form-select">
+                    @Html.DropDownList("IdGenero", new SelectList(ViewBag.genero, "IdGenero", "Genero1"), new {@class="form-control dropdown"})
 
-                        <option selected> Hombre</option>
-                        <option> Mujer  </option>
-                        <option> Otro  </option>
-                    </select>
                 </div>
                 <div class="col-md-3">
                     <label for="inputState" class="form-label">Rol</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Administrador</option>
-                        <option>Cordinador</option>
-                        <option>Estudiante</option>
-                    </select>
+                    @Html.DropDownList("IdRol", new SelectList(ViewBag.rol, "IdRol", "Rol1"), new {@class="form-control dropdown"})
+
                 </div>
                 <div class="col-md-6">
                     <label for="inputState" class="form-label">Exposicion de Seguridad Informatica</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Maestroa en Gestion TI.</option>
-                        <option>Maestria en medio Ambiente</option>
-                    </select>
+                    @Html.DropDownList("IdPrograma", new SelectList(ViewBag.programa, "IdPrograma", "Programa1"), new {@class="form-control dropdown"})
+
                 </div>
             </div>
            
