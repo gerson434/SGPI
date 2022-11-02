@@ -56,7 +56,7 @@ namespace SGPI.Controllers
             ViewBag.rol = context.Rols.ToList();
             ViewBag.documento = context.Documentos.ToList();
             ViewBag.programa = context.Programas.ToList();
-            
+
             return View();
         }
         [HttpPost]
@@ -69,7 +69,7 @@ namespace SGPI.Controllers
             ViewBag.rol = context.Rols.ToList();
             ViewBag.documento = context.Documentos.ToList();
             ViewBag.programa = context.Programas.ToList();
-            return View();
+            return Redirect("BuscarUsuario");
 
         }
         public IActionResult BuscarUsuario()
@@ -97,22 +97,30 @@ namespace SGPI.Controllers
                 return View();
             }
         }
-        public IActionResult MenuAdmModificar(int? IdUsuario)
+        public IActionResult MenuAdminModificar(int? IdUsuario)
         {
             Usuario usuario = context.Usuarios.Find(IdUsuario);
             if (usuario != null)
             {
+                ViewBag.genero = context.Generos.ToList();
+                ViewBag.rol = context.Rols.ToList();
+                ViewBag.documento = context.Documentos.ToList();
+                ViewBag.programa = context.Programas.ToList();
                 return View(usuario);
             }
             else
-                return Redirect("Administrador/BuscarUsuario");
+                return Redirect( "BuscarUsuario");
         }
         [HttpPost]
-        public IActionResult MenuAdmModificar(Usuario user)
+        public IActionResult MenuAdminModificar(Usuario user)
         {
             context.Update(user);
             context.SaveChanges();
-            return Redirect("Administrador/BuscarUsuario");
+            ViewBag.genero = context.Generos.ToList();
+            ViewBag.rol = context.Rols.ToList();
+            ViewBag.documento = context.Documentos.ToList();
+            ViewBag.programa = context.Programas.ToList();
+            return Redirect("BuscarUsuario");
         }
         public IActionResult Delete(Usuario usuario)
         {
