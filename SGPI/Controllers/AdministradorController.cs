@@ -6,6 +6,7 @@ namespace SGPI.Controllers
 {
     public class AdministradorController : Controller
     {
+
         SGPIDBContext context = new SGPIDBContext();
 
         [HttpPost]
@@ -39,7 +40,7 @@ namespace SGPI.Controllers
         }
             public IActionResult Login()
         {
-
+            
             return View();
         }
         public IActionResult OlvidarContrasena()
