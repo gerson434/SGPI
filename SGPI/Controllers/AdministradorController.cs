@@ -28,7 +28,7 @@ namespace SGPI.Controllers
                 }
                 else if (usuario.IdRol == 3)
                 {
-                    return Redirect("Estudiante/ActualizarEstudiante");
+                    return Redirect("Estudiante/ActualizarEstudiante/?IdUsuario="+usuario.IdUsuario);
                 }
                 else
                 {
